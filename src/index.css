@@ -1,13 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500;600;700&family=Poppins:wght@500;600;700;800&family=Rufina:wght@400;700&family=Work+Sans:wght@400;500&display=swap");
 * {
-  margin-left: 2px;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
+  font-family: "Work Sans", sans-serif;
 }
 
 body {
@@ -16,46 +17,47 @@ body {
   font-weight: 400;
   background-color: #f7f2e9;
   min-height: 100vh;
-  padding-bottom: 6rem;
-  background: #393939;
+  background: white;
+  overflow-x: hidden;
 }
 
-header {
-  position: fixed;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1em 0;
+.header {
+  padding: 0 4.8rem;
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg);
+  margin-bottom: 50px;
+  z-index: 1;
 }
 
-nav {
-  background-color: #eee;
-  padding: 1em;
+.header .logo {
+  width: 10%;
+  height: 6rem;
 }
 
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.navbar-lists {
+  display: flex;
+  gap: 4.8rem;
+  list-style: none;
 }
 
-nav li {
-  display: inline;
-  margin-right: 20px;
-}
-
-nav a {
+.navbar-link:link,
+.navbar-link:visited {
+  display: inline-block;
   text-decoration: none;
-  color: #333;
-  font-size: larger;
-  font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: #212529;
+  transition: all 0.3s;
+  font-family: "Poppins", sans-serif;
 }
 
-.head {
-  width: 100%;
-  height: 100px;
-  position: relative;
-  border: 2px solid;
+.navbar-link:hover,
+.navbar-link:active {
+  color: var(--helper);
 }
 .no {
   background-color: white;
@@ -65,7 +67,7 @@ nav a {
   height: 300px;
   width: 300px;
   background-size: 300px 300px;
-  background-image: url("./focaccia.jpg");
+  background-image: url("./malware.jpg");
   position: relative;
   border-radius: 10px;
   border: 2px solid;
@@ -108,7 +110,7 @@ button {
   grid-template-columns: 1fr 1fr 1fr;
   transition: transform 3s ease;
   position: relative;
-  margin-left: 0px;
+  margin-left: 20px;
 }
 
 .next {
@@ -116,11 +118,11 @@ button {
   width: 30px;
   height: 50px;
   top: 150px;
-  right: 0;
+  right: 0px;
   background-color: white;
-  margin-left: 20px;
   align-items: center;
   border-radius: 2px;
+  z-index: 1;
 }
 .next span {
   display: flex;
@@ -131,11 +133,12 @@ button {
   width: 30px;
   height: 50px;
   top: 150px;
-  left: 0;
+  left: 1px;
   background-color: white;
   align-items: center;
   border-radius: 2px;
   margin-right: 20px;
+  z-index: 1;
 }
 .prev span {
   display: flex;
@@ -147,11 +150,203 @@ button {
 }
 
 .no {
-  background-color: #e4decd;
-  border: 2px solid;
-  margin-top: 20px;
-  border-radius: 20px;
+  background-color: whitesmoke;
+  font-size: small;
 }
 .pimg {
   margin-left: 0px;
+}
+
+.con {
+  width: 100%;
+  height: 300px;
+  background-color: beige;
+}
+
+:root {
+  --heading: rgb(0 10 45);
+  --para-tint: #e4e4e4;
+  --third: #fff;
+  --helper: #8490ff;
+  --helper-tint: #f3f4ff;
+  --bg: rgb(249 249 255);
+  --gradient: linear-gradient(0deg, rgb(132 144 255) 0%, rgb(98 189 252) 100%);
+  --shadpw: 0px 0px 20px 0px rgb(132 144 255 / 20%);
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: 9rem;
+}
+
+.grid-two-col {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three-col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four-col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mobile-nav-icon[name="close-outline"] {
+  display: none;
+}
+
+.material-icons {
+  width: 8rem;
+  height: 8rem;
+  background-color: rgb(144 172 209 / 20%);
+  display: inline-block;
+  border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+  padding: 1.4rem 1.8rem;
+  position: relative;
+  color: var(--heading);
+  animation: water-wave 3s linear infinite;
+}
+
+.material.icons::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(11, 15, 20, 0.9);
+  width: 90%;
+  height: 90%;
+  border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+  background-color: transparent;
+  animation: water-wave 5s linear infinite alternate;
+}
+
+@keyframes water-wave {
+  0% {
+    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+  }
+  50% {
+    border-radius: 3% 97% 15% 85% / 72% 0% 100% 28%;
+  }
+  100% {
+    border-radius: 56% 44% 70% 30% / 30% 54% 46% 70%;
+  }
+}
+
+.section-footer {
+  background: var(--heading);
+}
+
+.section-footer h3 {
+  color: var(--third);
+  margin-bottom: 4rem;
+}
+
+.f-about p {
+  color: #adadad;
+}
+
+.f-links ul,
+.f-services ul,
+.f-address address {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  justify-content: center;
+  list-style: none;
+}
+
+.f-links li,
+.f-links a,
+.f-services li,
+.f-services a {
+  font-size: 1.8rem;
+  color: #adadad;
+  text-transform: capitalize;
+}
+
+.f-links span,
+.f-services span,
+.f-address span {
+  margin-right: 1rem;
+}
+
+.f-address p {
+  font-style: normal;
+  color: #adadad;
+}
+
+.f-social-icons {
+  margin: 5rem 0;
+  text-align: center;
+  color: #adadad;
+}
+
+.f-credits p {
+  text-align: center;
+  color: #adadad;
+}
+
+footer a:hover {
+  color: var(--third);
+}
+
+.section {
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.f-social-icons a.logo {
+  font-size: 80px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.f-address {
+  margin-right: 0px;
+  margin-top: 50px;
+}
+.f-links {
+  margin-left: 40px;
+  margin-top: 50px;
+}
+.f-about {
+  margin-left: 40px;
+  margin-top: 50px;
+}
+.footer .f-credits {
+  margin-bottom: 20px;
+}
+.f-services {
+  margin-top: 50px;
+}
+.header .pic {
+  font-size: 10em;
+}
+
+.header .pic svg {
+  vertical-align: middle;
+}
+
+.nnn:hover {
+  transform: scale(1.05);
+}
+.nnn {
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1);
 }
