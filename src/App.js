@@ -293,13 +293,13 @@ function Footer() {
               <span>
                 <FaArrowRight />
               </span>
-              <a href="#">Cyber Laws</a>
+              <a href="#">Cyber Tips</a>
             </li>
             <li>
               <span>
                 <FaArrowRight />
               </span>
-              <a href="#">Cyber Tips</a>
+              <a href="#">Cyber Laws</a>
             </li>
             <li>
               <span>
