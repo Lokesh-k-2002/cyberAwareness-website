@@ -11,6 +11,7 @@ import { MdCall } from "react-icons/md";
 import { IoMdMailUnread } from "react-icons/io";
 import { FaCopyright } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-solid-svg-icons";
@@ -59,6 +60,11 @@ function Head() {
               Contact
             </a>
           </li>
+          <li>
+            <a className="navbar-link service-link" href="#">
+              Chat Bot
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -87,27 +93,34 @@ function News() {
 
     axios(options)
       .then((response) => {
-        const cybersecurityNews = response.data.articles.filter(
-          (article) =>
-            article.title.toLowerCase().includes("cybersecurity") ||
-            article.description.toLowerCase().includes("cybersecurity") ||
-            article.content.toLowerCase().includes("cybersecurity") ||
-            article.title.toLowerCase().includes("malware") ||
-            article.description.toLowerCase().includes("malware") ||
-            article.content.toLowerCase().includes("malware") ||
-            article.title.toLowerCase().includes("vulnerabilities") ||
-            article.description.toLowerCase().includes("vulnerabilities") ||
-            article.content.toLowerCase().includes("vulnerabilities") ||
-            article.title.toLowerCase().includes("hackers") ||
-            article.description.toLowerCase().includes("hackers") ||
-            article.content.toLowerCase().includes("hackers") ||
-            article.title.toLowerCase().includes("banking scams") ||
-            article.description.toLowerCase().includes("banking scams") ||
-            article.content.toLowerCase().includes("banking scams") ||
-            article.title.toLowerCase().includes("frauds") ||
-            article.description.toLowerCase().includes("frauds") ||
-            article.content.toLowerCase().includes("frauds")
-        );
+        const cybersecurityNews = response.data.articles.filter((article) => {
+          const title = article.title ? article.title.toLowerCase() : "";
+          const description = article.description
+            ? article.description.toLowerCase()
+            : "";
+          const content = article.content ? article.content.toLowerCase() : "";
+
+          return (
+            title.includes("cybersecurity") ||
+            description.includes("cybersecurity") ||
+            content.includes("cybersecurity") ||
+            title.includes("malware") ||
+            description.includes("malware") ||
+            content.includes("malware") ||
+            title.includes("vulnerabilities") ||
+            description.includes("vulnerabilities") ||
+            content.includes("vulnerabilities") ||
+            title.includes("hackers") ||
+            description.includes("hackers") ||
+            content.includes("hackers") ||
+            title.includes("banking scams") ||
+            description.includes("banking scams") ||
+            content.includes("banking scams") ||
+            title.includes("frauds") ||
+            description.includes("frauds") ||
+            content.includes("frauds")
+          );
+        });
 
         setNews(cybersecurityNews);
 
@@ -227,13 +240,11 @@ function New(props) {
   }
   return (
     <div className="nnn">
-      <li
-        className="news-template"
-        style={{
-          backgroundImage: props.img !== "" ? `url(${props.img})` : "none",
-        }}
-      >
+      <li className="news-template">
         <a href={props.url} target="_blank">
+          <div className="newsimg">
+            <img src={props.img} alt="" className="newsimg-image" />
+          </div>
           <div className="content">
             <h2>Source: {props.author}</h2>
             <h1>{props.desc}</h1>
@@ -248,6 +259,7 @@ function New(props) {
             <FontAwesomeIcon icon={faThumbsDown} />
           </button>
           <span>{Math.abs(dislike)}</span>
+          <span></span>
         </div>
       </li>
     </div>
